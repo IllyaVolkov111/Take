@@ -1,0 +1,23 @@
+$spaceamounts: (0, 3, 5, 7 , 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 75, 80, 85, 95, 100, 110);
+$sides: ( "": "all", "t": "top", "b": "bottom", "l": "left", "r": "right" );
+
+/* stylelint-disable*/
+@each $space in $spaceamounts {
+    @each $prefix,
+        $value in $sides {
+        $property: if($prefix=='', '', -#{$value});
+
+        .m#{$prefix}#{$space} {
+            margin#{$property}: #{$space}px+'!important';
+        }
+
+        .p#{$prefix}#{$space} {
+            padding#{$property}: #{$space}px+'!important';
+        }
+
+    }
+}
+
+a {
+    color: white !important;
+}
